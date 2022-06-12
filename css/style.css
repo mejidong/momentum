@@ -221,8 +221,13 @@ input:focus {
   justify-content: center;
   align-items: center;
   top: 0;
+  left: 0;
   font-size: 30px;
   color: whitesmoke;
+}
+
+#no-mobile span {
+  padding: 50px;
 }
 
 @media screen and (min-width: 800px) {
