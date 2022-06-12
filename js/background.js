@@ -43,6 +43,11 @@ const createImg = (number) => {
   body.prepend(img);
 };
 
+if (savedThema === null) {
+  window.localStorage.setItem(THEMA, BG_MEJIDONG);
+  window.location.reload();
+}
+
 const getRandom = () => {
   //이미지 개수. 얼마든지 변경 가능.
   const IMG_NUM = 34;
@@ -56,14 +61,17 @@ const getRandom = () => {
 
 //마지막으로 getRandom 함수 호출
 getRandom();
-setInterval(getRandom, 15000);
+
+if (savedThema === BG_MEJIDONG) {
+  setInterval(getRandom, 15000);
+}
 
 //이미지 변경 버튼
 function clickChangeButton() {
   if (savedThema === BG_MEJIDONG) {
     window.localStorage.removeItem(THEMA, BG_MEJIDONG);
     window.localStorage.setItem(THEMA, BG_EMOTIONAL);
-  } else {
+  } else if (savedThema === BG_EMOTIONAL) {
     window.localStorage.removeItem(THEMA, BG_EMOTIONAL);
     window.localStorage.setItem(THEMA, BG_MEJIDONG);
   }
@@ -78,5 +86,14 @@ function buttonText() {
   }
 }
 
+function changeButtonMouseenter() {
+  ChangeButton.style.fontWeight = "900";
+}
+function changeButtonMouseleave() {
+  ChangeButton.style.fontWeight = "700";
+}
+
 buttonText();
 ChangeButton.addEventListener("click", clickChangeButton);
+ChangeButton.addEventListener("mouseenter", changeButtonMouseenter);
+ChangeButton.addEventListener("mouseleave", changeButtonMouseleave);
