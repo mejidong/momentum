@@ -13,6 +13,14 @@ document.body.appendChild(bgImage);
 
 const body = document.querySelector("body");
 
+const BG_EMOTIONAL = "bgEmotional";
+const BG_MEJIDONG = "bgMejidong";
+const THEMA = "thema";
+
+const savedThema = localStorage.getItem(THEMA);
+
+const ChangeButton = document.querySelector("#changeImg button");
+
 const createImg = (number) => {
   //<img>요소를 만든다.
   const img = document.createElement("img");
@@ -22,7 +30,12 @@ const createImg = (number) => {
     body.removeChild(bg);
   }
   //<img> src, alt 값을 지정하고 'bgImg'클래스를 추가한다.
-  img.src = `img/${number}.jpg`;
+
+  if (savedThema === BG_MEJIDONG) {
+    img.src = `img/${number}.jpg`;
+  } else if (savedThema === BG_EMOTIONAL) {
+    img.src = `img2/${number}.jpg`;
+  }
   img.alt = "background images";
   img.classList.add("bgImg");
 
@@ -44,3 +57,26 @@ const getRandom = () => {
 //마지막으로 getRandom 함수 호출
 getRandom();
 setInterval(getRandom, 15000);
+
+//이미지 변경 버튼
+function clickChangeButton() {
+  if (savedThema === BG_MEJIDONG) {
+    window.localStorage.removeItem(THEMA, BG_MEJIDONG);
+    window.localStorage.setItem(THEMA, BG_EMOTIONAL);
+  } else {
+    window.localStorage.removeItem(THEMA, BG_EMOTIONAL);
+    window.localStorage.setItem(THEMA, BG_MEJIDONG);
+  }
+  window.location.reload();
+}
+
+function buttonText() {
+  if (savedThema == BG_MEJIDONG) {
+    ChangeButton.innerText = "Change to Emotional-BG";
+  } else {
+    ChangeButton.innerText = "Change to Mejidong-BG";
+  }
+}
+
+buttonText();
+ChangeButton.addEventListener("click", clickChangeButton);
