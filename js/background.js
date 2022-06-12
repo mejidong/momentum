@@ -17,6 +17,10 @@ const createImg = (number) => {
   //<img>요소를 만든다.
   const img = document.createElement("img");
 
+  const bg = document.querySelector(".bgImg");
+  if (bg) {
+    body.removeChild(bg);
+  }
   //<img> src, alt 값을 지정하고 'bgImg'클래스를 추가한다.
   img.src = `img/${number}.jpg`;
   img.alt = "background images";
@@ -39,3 +43,4 @@ const getRandom = () => {
 
 //마지막으로 getRandom 함수 호출
 getRandom();
+setInterval(getRandom, 15000);
