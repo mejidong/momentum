@@ -28,7 +28,7 @@ const createImg = (number) => {
 
 const getRandom = () => {
   //이미지 개수. 얼마든지 변경 가능.
-  const IMG_NUM = 35;
+  const IMG_NUM = 34;
 
   //1부터 3까지의 랜덤 숫자 만들기
   let num = Math.floor(Math.random() * IMG_NUM) + 1;
