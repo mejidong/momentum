@@ -56,7 +56,7 @@ const getRandom = () => {
     let num = Math.floor(Math.random() * IMG_NUM) + 1;
     createImg(num);
   } else if (savedThema === BG_EMOTIONAL) {
-    const IMG_NUM = 34;
+    const IMG_NUM = 48;
     let num = Math.floor(Math.random() * IMG_NUM) + 1;
     createImg(num);
   }
