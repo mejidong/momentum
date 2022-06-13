@@ -26,6 +26,10 @@
         <button>✔ Log In</button>
       </form>
       <h1 class="hidden" id="greeting"></h1>
+      <form class="hidden" id="motto-form">
+        <input required type="text" placeholder="What is your motto?" />
+      </form>
+      <h1 class="hidden" id="changeMotto"></h1>
       <form class="hide" id="todo-form">
         <input
           type="text"
@@ -45,6 +49,12 @@
     <div id="changeImg">
       <button>Change to emotional-bg</button>
     </div>
+    <div id="changeGreeting">
+      <button>Show Motto</button>
+    </div>
+    <div id="reset">
+      <button>All Data Reset</button>
+    </div>
 
     <div id="no-mobile">
       <span>The screen is too small to open.</span>
@@ -58,5 +68,6 @@
     <script src="js/background.js"></script>
     <script src="js/todo.js"></script>
     <script src="js/weather.js"></script>
+    <script src="js/reset.js"></script>
   </body>
 </html>

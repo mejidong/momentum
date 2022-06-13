@@ -50,13 +50,18 @@ if (savedThema === null) {
 
 const getRandom = () => {
   //이미지 개수. 얼마든지 변경 가능.
-  const IMG_NUM = 34;
 
-  //1부터 3까지의 랜덤 숫자 만들기
-  let num = Math.floor(Math.random() * IMG_NUM) + 1;
+  if (savedThema === BG_MEJIDONG) {
+    const IMG_NUM = 57;
+    let num = Math.floor(Math.random() * IMG_NUM) + 1;
+    createImg(num);
+  } else if (savedThema === BG_EMOTIONAL) {
+    const IMG_NUM = 34;
+    let num = Math.floor(Math.random() * IMG_NUM) + 1;
+    createImg(num);
+  }
 
   //이미지 생성함수 호출
-  createImg(num);
 };
 
 //마지막으로 getRandom 함수 호출
@@ -87,10 +92,10 @@ function buttonText() {
 }
 
 function changeButtonMouseenter() {
-  ChangeButton.style.fontWeight = "900";
+  ChangeButton.style.fontWeight = "700";
 }
 function changeButtonMouseleave() {
-  ChangeButton.style.fontWeight = "700";
+  ChangeButton.style.fontWeight = "normal";
 }
 
 buttonText();

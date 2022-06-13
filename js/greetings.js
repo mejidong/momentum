@@ -6,6 +6,13 @@ const todolistinput = document.querySelector("#todo-form");
 const HIDDEN_CLASSNAME = "hidden";
 const USERNAME_KEY = "username";
 
+const mottoForm = document.querySelector("#motto-form");
+const mottoInput = document.querySelector("#motto-form input");
+const changeMotto = document.querySelector("#changeMotto");
+const ChangeButtonMotto = document.querySelector("#changeGreeting button");
+
+const MOTTO_KEY = "motto";
+
 function onLoginSubmit(event) {
   event.preventDefault();
   loginForm.classList.add(HIDDEN_CLASSNAME);
@@ -17,7 +24,9 @@ function onLoginSubmit(event) {
 function paintGreetings(username) {
   greeting.innerText = `Hello, ${username}!`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
-  todolistinput.classList.remove("hide");
+  mottoForm.classList.remove(HIDDEN_CLASSNAME);
+  mottoForm.addEventListener("submit", onMottoSubmit);
+  //todolistinput.classList.remove("hide");
 }
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
@@ -28,3 +37,62 @@ if (savedUsername === null) {
 } else {
   paintGreetings(savedUsername);
 }
+
+//Motto
+
+function onMottoSubmit(event) {
+  todolistinput.classList.remove("hide");
+  event.preventDefault();
+  mottoForm.classList.add(HIDDEN_CLASSNAME);
+  const mottoname = mottoInput.value;
+  localStorage.setItem(MOTTO_KEY, mottoname);
+  paintMotto(mottoname);
+}
+
+function paintMotto(mottoname) {
+  changeMotto.innerText = `${mottoname}`;
+  mottoForm.classList.add(HIDDEN_CLASSNAME);
+  if (savedUsername !== null) {
+    todolistinput.classList.remove("hide");
+  }
+}
+
+const savedMotto = localStorage.getItem(MOTTO_KEY);
+
+if (savedMotto === null && savedUsername !== null) {
+  todolistinput.classList.add("hide");
+  mottoForm.classList.remove(HIDDEN_CLASSNAME);
+  mottoForm.addEventListener("submit", onMottoSubmit);
+} else {
+  paintMotto(savedMotto);
+}
+
+function clickMottoButton() {
+  changeMotto.classList.toggle(HIDDEN_CLASSNAME);
+  if (changeMotto.classList.contains(HIDDEN_CLASSNAME)) {
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+  } else {
+    greeting.classList.add(HIDDEN_CLASSNAME);
+  }
+  buttonTextMotto();
+}
+
+function changeButtonMottoMouseenter() {
+  ChangeButtonMotto.style.fontWeight = "700";
+}
+function changeButtonMottoMouseleave() {
+  ChangeButtonMotto.style.fontWeight = "normal";
+}
+
+function buttonTextMotto() {
+  if (changeMotto.classList.contains(HIDDEN_CLASSNAME)) {
+    ChangeButtonMotto.innerText = "Show Motto";
+  } else {
+    ChangeButtonMotto.innerText = "Hide Motto";
+  }
+}
+
+buttonTextMotto();
+ChangeButtonMotto.addEventListener("click", clickMottoButton);
+ChangeButtonMotto.addEventListener("mouseenter", changeButtonMottoMouseenter);
+ChangeButtonMotto.addEventListener("mouseleave", changeButtonMottoMouseleave);

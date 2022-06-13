@@ -101,6 +101,15 @@ input {
   animation: fadeIn 1s;
 }
 
+#changeMotto {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: whitesmoke;
+  font-size: 70px;
+  animation: fadeIn 1s;
+}
+
 #weather_today {
   color: whitesmoke;
   text-align: right;
@@ -212,6 +221,35 @@ input:focus {
   padding: 0px 15px 15px 15px;
 }
 
+#motto-form {
+  flex-direction: column;
+  animation: fadeIn 1s;
+}
+
+#motto-form input {
+  border: none;
+  padding: 15px 0;
+  font-size: 30px;
+  text-align: center;
+  border-bottom: 2px solid whitesmoke;
+  margin: 30px;
+  background-color: transparent;
+  color: whitesmoke;
+}
+
+#motto-form ::placeholder {
+  color: whitesmoke;
+}
+
+#motto-form button {
+  display: inline;
+  border: none;
+  background-color: transparent;
+  color: whitesmoke;
+  font-size: 20px;
+  padding: 0px 15px 15px 15px;
+}
+
 #no-mobile {
   position: absolute;
   z-index: 20;
@@ -247,5 +285,31 @@ input:focus {
   background-color: transparent;
   color: whitesmoke;
   top: 4%;
+  margin-left: 20px;
+}
+
+#changeGreeting button {
+  position: absolute;
+  border: none;
+  padding: 5px;
+  font-size: 15px;
+  text-align: center;
+  border-left: 2px solid whitesmoke;
+  background-color: transparent;
+  color: whitesmoke;
+  top: 12%;
+  margin-left: 20px;
+}
+
+#reset button {
+  position: absolute;
+  border: none;
+  padding: 2px 2px 2px 5px;
+  font-size: 12px;
+  text-align: center;
+  border-left: 2px solid whitesmoke;
+  background-color: transparent;
+  color: whitesmoke;
+  top: 92%;
   margin-left: 20px;
 }
