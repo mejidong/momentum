@@ -26,10 +26,51 @@
         <button>✔ Log In</button>
       </form>
       <h1 class="hidden" id="greeting"></h1>
+
       <form class="hidden" id="motto-form">
         <input required type="text" placeholder="What is your motto?" />
       </form>
       <h1 class="hidden" id="changeMotto"></h1>
+
+      <form id="dday-form" class="hidden">
+        <input
+          id="ddayinputy"
+          required
+          type="number"
+          min="2022"
+          maxlength="4"
+          placeholder="Year"
+          oninput="maxLengthCheck(this)"
+        />
+        <input
+          id="ddayinputm"
+          required
+          type="number"
+          min="1"
+          max="12"
+          minlength="1"
+          maxlength="2"
+          placeholder="Month"
+          oninput="maxLengthCheck(this)"
+        />
+        <input
+          id="ddayinputd"
+          required
+          type="number"
+          min="1"
+          max="31"
+          minlength="1"
+          maxlength="2"
+          placeholder="Day"
+          oninput="maxLengthCheck(this)"
+        />
+        <input class="hidden" type="submit" />
+      </form>
+      <div class="hidden" id="ddays">
+        <span id="dDaySet"></span>
+        <span id="dDay"></span>
+      </div>
+
       <form class="hide" id="todo-form">
         <input
           type="text"
@@ -52,6 +93,9 @@
     <div id="changeGreeting">
       <button>Show Motto</button>
     </div>
+    <div id="ddaybutton">
+      <button>D-Day</button>
+    </div>
     <div id="reset">
       <button>All Data Reset</button>
     </div>
@@ -69,5 +113,6 @@
     <script src="js/todo.js"></script>
     <script src="js/weather.js"></script>
     <script src="js/reset.js"></script>
+    <script src="js/dday.js"></script>
   </body>
 </html>

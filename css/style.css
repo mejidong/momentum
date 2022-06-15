@@ -92,15 +92,7 @@ input {
   font-weight: 900;
 }
 
-#greeting {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  color: whitesmoke;
-  font-size: 70px;
-  animation: fadeIn 1s;
-}
-
+#greeting,
 #changeMotto {
   margin: 0;
   padding: 0;
@@ -165,7 +157,7 @@ form {
 }
 #todo-form input {
   border: none;
-  padding: 15px 0px;
+  padding: 15px 30px;
   font-size: 18px;
   text-align: center;
   border-bottom: 2px solid whitesmoke;
@@ -174,7 +166,10 @@ form {
   color: whitesmoke;
 }
 
-#todo-form ::placeholder {
+#todo-form ::placeholder,
+#login-form ::placeholder,
+#motto-form ::placeholder,
+#dday-form ::placeholder {
   color: whitesmoke;
 }
 
@@ -192,40 +187,17 @@ input:focus {
   margin-left: 10px;
 }
 
-#login-form {
+#login-form,
+#motto-form {
   position: absolute;
   flex-direction: column;
   animation: fadeIn 1s;
 }
-
-#login-form input {
-  border: none;
-  padding: 15px 0;
-  font-size: 30px;
-  text-align: center;
-  border-bottom: 2px solid whitesmoke;
-  margin: 30px;
-  background-color: transparent;
-  color: whitesmoke;
-}
-
-#login-form ::placeholder {
-  color: whitesmoke;
-}
-
-#login-form button {
-  border: none;
-  background-color: transparent;
-  color: whitesmoke;
-  font-size: 20px;
-  padding: 0px 15px 15px 15px;
-}
-
-#motto-form {
-  flex-direction: column;
+#dday-form {
   animation: fadeIn 1s;
 }
 
+#login-form input,
 #motto-form input {
   border: none;
   padding: 15px 0;
@@ -237,12 +209,25 @@ input:focus {
   color: whitesmoke;
 }
 
-#motto-form ::placeholder {
+#dday-form input {
+  border: none;
+  padding: 5px 0;
+  font-size: 20px;
+  text-align: center;
+  border-bottom: 2px solid whitesmoke;
+  margin: 20px 10px 0px 10px;
+  background-color: transparent;
   color: whitesmoke;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#login-form button,
 #motto-form button {
-  display: inline;
   border: none;
   background-color: transparent;
   color: whitesmoke;
@@ -275,7 +260,10 @@ input:focus {
   }
 }
 
-#changeImg button {
+#changeImg button,
+#changeGreeting button,
+#reset button,
+#ddaybutton button {
   position: absolute;
   border: none;
   padding: 5px;
@@ -284,32 +272,43 @@ input:focus {
   border-left: 2px solid whitesmoke;
   background-color: transparent;
   color: whitesmoke;
-  top: 4%;
   margin-left: 20px;
+}
+
+#changeImg button {
+  top: 4%;
 }
 
 #changeGreeting button {
-  position: absolute;
-  border: none;
-  padding: 5px;
-  font-size: 15px;
-  text-align: center;
-  border-left: 2px solid whitesmoke;
-  background-color: transparent;
-  color: whitesmoke;
   top: 12%;
-  margin-left: 20px;
+}
+
+#ddaybutton button {
+  top: 20%;
 }
 
 #reset button {
-  position: absolute;
-  border: none;
-  padding: 2px 2px 2px 5px;
-  font-size: 12px;
-  text-align: center;
-  border-left: 2px solid whitesmoke;
-  background-color: transparent;
-  color: whitesmoke;
   top: 92%;
-  margin-left: 20px;
+}
+
+#ddays {
+  font-family: "Noto Sans KR", sans-serif;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  color: whitesmoke;
+  animation: fadeIn 1s;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  margin-top: 15px;
+}
+
+#dDaySet {
+  font-size: 30px;
+  font-weight: 600;
+  margin-right: 20px;
+}
+
+#dDay {
+  font-size: 25px;
+  font-weight: 500;
 }
